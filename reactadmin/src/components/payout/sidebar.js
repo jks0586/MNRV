@@ -4,24 +4,19 @@ const Side = (props) => {
   return (
     <>
       <Nav
-        className="col-md-12 d-none d-md-block bg-light sidebar"
+        className="col-md-3 d-none d-md-block sidebar"
         activeKey="/home"
         onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
       >
         <div className="sidebar-sticky"></div>
         <Nav.Item>
-          <Nav.Link href="/home">Active</Nav.Link>
+          <Nav.Link className="text-start" href="/home">Users</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-1">Link</Nav.Link>
+          <Nav.Link className="text-start" eventKey="link-1">Categories</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-2">Link</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="disabled" disabled>
-            Disabled
-          </Nav.Link>
+          <Nav.Link className="text-start" eventKey="link-2">Posts</Nav.Link>
         </Nav.Item>
       </Nav>
     </>

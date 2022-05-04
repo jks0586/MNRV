@@ -1,5 +1,60 @@
+:root {
+    --lets-blue: #0d6efd;
+    --lets-indigo: #6610f2;
+    --lets-purple: #6f42c1;
+    --lets-pink: #d63384;
+    --lets-red: #dc3545;
+    --lets-orange: #fd7e14;
+    --lets-yellow: #ffc107;
+    --lets-green: #198754;
+    --lets-teal: #20c997;
+    --lets-cyan: #0dcaf0;
+    --lets-white: #fff;
+    --lets-gray: #6c757d;
+    --lets-gray-dark: #343a40;
+    --lets-gray-100: #f8f9fa;
+    --lets-gray-200: #e9ecef;
+    --lets-gray-300: #dee2e6;
+    --lets-gray-400: #ced4da;
+    --lets-gray-500: #adb5bd;
+    --lets-gray-600: #6c757d;
+    --lets-gray-700: #495057;
+    --lets-gray-800: #343a40;
+    --lets-gray-900: #212529;
+    --lets-primary: #0d6efd;
+    --lets-secondary: #6c757d;
+    --lets-success: #198754;
+    --lets-info: #0dcaf0;
+    --lets-warning: #ffc107;
+    --lets-danger: #dc3545;
+    --lets-light: #f8f9fa;
+    --lets-dark: #212529;
+    --lets-primary-rgb: 13,110,253;
+    --lets-secondary-rgb: 108,117,125;
+    --lets-success-rgb: 25,135,84;
+    --lets-info-rgb: 13,202,240;
+    --lets-warning-rgb: 255,193,7;
+    --lets-danger-rgb: 220,53,69;
+    --lets-light-rgb: 248,249,250;
+    --lets-dark-rgb: 33,37,41;
+    --lets-white-rgb: 255,255,255;
+    --lets-black-rgb: 0,0,0;
+    --lets-body-color-rgb: 33,37,41;
+    --lets-body-bg-rgb: 255,255,255;
+    --lets-font-sans-serif: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --lets-font-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+    --lets-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    --lets-body-font-family: var(--lets-font-sans-serif);
+    --lets-body-font-size: 1rem;
+    --lets-body-font-weight: 400;
+    --lets-body-line-height: 1.5;
+    --lets-body-color: #212529;
+    --lets-body-bg: #fff;
+    --lets-left-bg:#171717;
+  }
+
 body,#root{
-    background: var(--bs-gray-dark);
+    background: var(--lets-gray-dark);
 }
 
 .sidebar {
@@ -11,6 +66,7 @@ body,#root{
     z-index: 100;
     padding: 48px 0 0;
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    background-color: var(--lets-left-bg);
 }
 #sidebar-wrapper{
     min-height: 100vh !important;
@@ -30,3 +86,8 @@ body,#root{
     min-width: 0;
     width: 100%;
 }
+
+.nav-link{
+    color: var(--lets-white)!important;
+}
+

@@ -11,19 +11,15 @@ export const UserSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    first_name: {
-      type: String,
-      required: true,
-      unique: false,
-    },
-    last_name: {
-      type: String,
-      required: true,
-      unique: false,
-    },
     password: {
       type: String,
       required: true,
+    },
+    first_name: {
+      type: String,
+    },
+    last_name: {
+      type: String,
     },
   },
   { timestamps: true },
@@ -32,8 +28,5 @@ export const UserSchema = new mongoose.Schema(
 export interface User extends mongoose.Document {
   _id: string;
   username: string;
-  email: string;
-  first_name: string;
-  last_name: string;
   password: string;
 }

@@ -70,7 +70,7 @@ body,#root{
 }
 #sidebar-wrapper{
     min-height: 100vh !important;
-    width: 100vw;
+    width: 25%;
     margin-left: -1rem;
     -webkit-transition: margin .25s ease-out;
     -moz-transition: margin .25s ease-out;
@@ -80,11 +80,13 @@ body,#root{
 #sidebar-wrapper .sidebar-heading {
     padding: 0.875rem 1.25rem;
     font-size: 1.2rem;
+
 }
 
 #page-content-wrapper {
     min-width: 0;
     width: 100%;
+    margin-left: 25%;;
 }
 
 .nav-link{

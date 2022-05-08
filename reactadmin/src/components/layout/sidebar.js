@@ -6,6 +6,7 @@ const Side = (props) => {
       <Nav
         className="col-md-3 d-none d-md-block sidebar"
         activeKey="/home"
+        id="sidebar-wrapper"
       >
         <div className="sidebar-sticky"></div>
         <Nav.Item>

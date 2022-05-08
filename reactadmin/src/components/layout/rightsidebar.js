@@ -1,13 +1,17 @@
 import React from "react";
-// import { Nav } from "react-bootstrap";
-import AdminDashboard from "../AdminDashboard";
-import UsersList from "../users/UsersList";
+
+import LetscmsRoutes from '../../routes/routes';
 class RightSidebar extends React.Component {
+    componentDidMount(){
+      // console.log(window.innerHeight);
+      document.getElementById('root').style.height=window.innerHeight+'px';
+    }
     render() {
       return (
        <>
-       <AdminDashboard />
-       <UsersList />
+       <div  id="page-content-wrapper" className="col-md-9">
+        <LetscmsRoutes/>
+       </div>
        </>
       );
     }

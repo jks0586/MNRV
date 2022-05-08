@@ -4,7 +4,7 @@ const Side = (props) => {
   return (
     <>
       <Nav
-        className="col-md-3 d-none d-md-block sidebar"
+        className="col-md-2 d-none d-md-block sidebar"
         activeKey="/home"
         id="sidebar-wrapper"
       >

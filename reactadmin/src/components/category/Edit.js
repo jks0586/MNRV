@@ -3,11 +3,18 @@ import React from "react";
 import { Form, Card, Button } from "react-bootstrap";
 import Select from "react-select";
 import CategoryService from "../../services/category";
+import { useNavigate, useParams } from "react-router-dom";
+export const withRouter = (WrappedComponent) => (props) => {
+    const params = useParams();
+    const navigate = useNavigate();
+  
+    return <WrappedComponent {...props} params={params} navigate={navigate} />;
+  };
 const STATUSOPTION = [
   { value: 0, label: "Disable" },
   { value: 1, label: "Enable" },
 ];
-class CategoryAdd extends React.Component {
+class CategoryEdit extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -99,6 +106,47 @@ class CategoryAdd extends React.Component {
     filereader.readAsDataURL(file);
   }
 
+
+  componentDidMount() {
+    // console.log(this.props.params);
+    CategoryService.edit(this.props.params._id).then((response) => {
+      console.log(response);
+      if (response.data.code === 200) {
+        
+        this.setState({
+          _id: response.data.result._id,
+          name: response.data.result.name,
+          image: response.data.result.image,
+          parent_id: response.data.result.parent_id,
+          order: response.data.result.order,
+          status: response.data.result.status,
+          imagePreview: (
+            <img
+              src={response.data.result.image}
+              width="100"
+              height="100"
+              alt=""
+            />
+          ),
+          imagePreviewUrl: response.data.result.image,
+        });
+      }
+    });
+
+    CategoryService.parent(this.props.params._id).then((response) => {
+      var optionsdata = [];
+      response.data.map((category) => {
+        return optionsdata.push({ value: category._id, label: category.name });
+      });
+      this.setState({
+        parents: optionsdata,
+      });
+    });
+
+    // console.log(this.props.params._id);
+  }
+
+
   render() {
     const { parent_id,status} = this.state;
     return (
@@ -181,4 +229,4 @@ class CategoryAdd extends React.Component {
   }
 }
 
-export default CategoryAdd;
+export default withRouter(CategoryEdit);

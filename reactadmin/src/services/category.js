@@ -5,6 +5,8 @@ class CategoryService{
         return letscmsrest.get(suburl);
     }
     creteCategory(data){
+        // console.log(data);
+        // return data;
         return letscmsrest.post(suburl+'/create',data);
     }
     edit(id){

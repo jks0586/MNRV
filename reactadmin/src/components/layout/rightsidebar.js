@@ -9,7 +9,7 @@ class RightSidebar extends React.Component {
     render() {
       return (
        <>
-       <div  id="page-content-wrapper" className="col-md-9">
+       <div  id="page-content-wrapper" className="col-md-10">
         <LetscmsRoutes/>
        </div>
        </>

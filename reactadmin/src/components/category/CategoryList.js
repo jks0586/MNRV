@@ -6,8 +6,9 @@ class CategoryList extends React.Component {
 constructor(props) {
     super(props);
     this.state = {
-        columns:{name:'name',description:'description',created:'created'},
+        columns:[{label:'#Id'},{label:'name'},{label:'description'},{label:'created'},{label:'updated'},{label:'Action'}],
         categories:'',
+        action:{'edit':'categories/edit/','view':'categories/view/'},
     }
     
 }
@@ -27,9 +28,9 @@ componentDidMount(){
     return (
      <>
      <Card bg="dark" text="white">
-     <div className="text-start">Category List</div>
+     <div className="text-start"><h3>Manage Category</h3></div>
      <Card bg="dark p-2">
-     <LetscmsTable columns={this.state.columns} data={this.state.categories} />
+     <LetscmsTable action={this.state.action} columns={this.state.columns} data={this.state.categories} />
   </Card>
   </Card>
      </>

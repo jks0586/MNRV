@@ -1,6 +1,10 @@
 /* eslint-disable no-useless-constructor */
 import React from "react";
 import { Table } from "react-bootstrap";
+import moment from 'moment';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPen,faEye } from '@fortawesome/free-solid-svg-icons';
+
 class LetscmsTable extends React.Component {
 constructor(props) {
     super(props);
@@ -9,12 +13,11 @@ constructor(props) {
     // }
 }
 
-capitalizeFirstLetter(string) {
+capitalizeFirstLetter=(string)=> {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 componentDidMount(){
     // console.log(this.props.data.length);
-
     // this.setState={data:this.props.data}
     // console.log(this.state.data);
 
@@ -24,18 +27,28 @@ componentDidMount(){
     return (
      <>
     <Table striped bordered hover variant="dark">
+    
     <thead>
       <tr>
-        <th>#</th>
-        <th>{this.capitalizeFirstLetter(this.props.columns.name)}</th>
-        <th>{this.capitalizeFirstLetter(this.props.columns.description)}</th>
-        <th>{this.capitalizeFirstLetter(this.props.columns.created)}</th>
+      {this.props.columns && 
+            this.props.columns.length > 0 && 
+            this.props.columns.map((item,index) => (
+                <th key={index}>{this.capitalizeFirstLetter(item.label)}</th>
+            ))}
+        
       </tr>
     </thead>
     <tbody>
         {this.props.data && 
             this.props.data.length > 0 && 
-            this.props.data.map((item,index) => (<tr key={index}><td>1</td><td>{item.name}</td><td>{item.description}</td><td>{item.createdAt}</td></tr>))}
+            this.props.data.map((item,index) => (
+            <tr key={index}>
+            <td>1</td><td>{item.name}</td>
+            <td>{item.description}</td>
+            <td>{moment(item.createdAt).format("DD MMM,YYYY")}</td>
+            <td>{moment(item.updatedAt).format("DD MMM,YYYY")}</td>
+            <td><a className="text-white" href={this.props.action.edit+`${item._id}`}> <FontAwesomeIcon icon={faPen} /></a> | <a  className="text-white" href={this.props.action.view+`${item._id}`}> <FontAwesomeIcon icon={faEye} /></a></td>
+            </tr>))}
     </tbody>
   </Table>  
      </>

@@ -4,6 +4,7 @@ import AdminDashboard from "../components/AdminDashboard";
 import UsersList from "../components/users/UsersList";
 import CategoryList from "../components/category/CategoryList";
 import CategoryAdd from "../components/category/Add";
+import CategoryEdit from "../components/category/Edit";
 class LetscmsRoutes extends React.Component {
     render() {
         return (
@@ -13,6 +14,7 @@ class LetscmsRoutes extends React.Component {
               <Route path="/users" element={<UsersList />}/>   
               <Route path="/categories" element={<CategoryList />}/>   
               <Route path="/categories/add" element={<CategoryAdd />}/>   
+              <Route path="/categories/edit/:_id" element={<CategoryEdit />}/>   
               {/* <Route path="/admin/dashboard" element={<AdminDashboard />}/>
               <Route path="/admin/users" element={<AdminUsers />}/>
               <Route path="/admin/category" element={<AdminCategory />} />
